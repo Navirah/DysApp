@@ -17,6 +17,8 @@ from .WordSegmentation import prepareImg
 
 from .Spelling import spelling
 
+from .gector.predict import predict_for_file
+
 
 
 class FilePaths:
