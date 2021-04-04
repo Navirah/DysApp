@@ -17,7 +17,7 @@ from .WordSegmentation import prepareImg
 
 from .Spelling import spelling
 
-from .gector.predict import predict_for_file
+from .gector.predict import grammar_correct
 
 
 
@@ -78,6 +78,8 @@ def infer(model, fnImg):
         outF.write('\n')
     
     outF.close()
+    
+    grammar_correct(pathoutF)
 
     s=spelling()
     s.correct()
