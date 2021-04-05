@@ -17,20 +17,20 @@ ________________________________________________
 
 DEPENDENCIES: Python 3.7
 
--tensorflow (version 2.4.0)
--torch (version 1.8.0)
--editdistance
--matplotlib
--cv2
--lmdb
--spello
--Fastpunct
--numpy
--allennlp (version 0.8.4)
--python-Levenshtein (version 0.12.0)
--transformers (version 2.2.2)
--scikit-learn (version 0.20.0)
--sentencepiece (version 0.1.91)
+- tensorflow (version 2.4.0)
+- torch (version 1.8.0)
+- editdistance
+- matplotlib
+- cv2
+- lmdb
+- spello
+- Fastpunct
+- numpy
+- allennlp (version 0.8.4)
+- python-Levenshtein (version 0.12.0)
+- transformers (version 2.2.2)
+- scikit-learn (version 0.20.0)
+- sentencepiece (version 0.1.91)
 
 ________________________________________________
 
@@ -39,4 +39,4 @@ Notes:
 1. Download the gector model and put in the specified location. (If folder doesn't exist, create folder)
 2. Download the spello model and put in the specidied location.
 3. Delete any .DS_Store file (If found)
-4. Delete any pychache file (If found)
+4. Delete any pycache file (If found)
