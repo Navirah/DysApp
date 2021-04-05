@@ -26,3 +26,8 @@ Dependencies:
 -spello
 -Fastpunct
 -numpy
+-allennlp (version 0.8.4)
+-python-Levenshtein (version 0.12.0)
+-transformers (version 2.2.2)
+-scikit-learn (version 0.20.0)
+-sentencepiece (version 0.1.91)
