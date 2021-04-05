@@ -56,7 +56,7 @@ def fetchforinfer(pathimg):
 def infer(model, fnImg):
     "recognize text in image provided by file path"
     module_dir = os.path.dirname(__file__) 
-    pathoutF= os.path.join(module_dir, 'data', 'recog.txt')
+    pathoutF= os.path.join(module_dir, 'gector','Output', 'HTR.txt')
     outF = open(pathoutF, "w")
 
     #img = preprocess(cv2.imread(fnImg, cv2.IMREAD_GRAYSCALE), Model.imgSize)
@@ -78,13 +78,15 @@ def infer(model, fnImg):
         outF.write('\n')
     
     outF.close()
-    
-    grammar_correct(pathoutF)
 
     s=spelling()
-    s.correct()
-    corrected=s.punct()
-    return corrected[0]
+    outpath=grammar_correct(s.correct())
+    f=open(outpath,'r')
+    l=f.readlines()
+    for i in f:
+        print(i)
+    #corrected=s.punct()
+    #return corrected[0]
     #print(corrected[0])
     #outF1 = open("../data/corrected.txt", "w+")
     #outF1.write(corrected[0])
