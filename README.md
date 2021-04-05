@@ -15,3 +15,14 @@ Location- dys_UI/main/
 
 ________________________________________________
 
+Dependencies:
+
+-tensorflow (version 2.4.0)
+-torch (version 1.8.0)
+-editdistance
+-matplotlib
+-cv2
+-lmdb
+-spello
+-Fastpunct
+-numpy
