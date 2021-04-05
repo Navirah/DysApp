@@ -15,7 +15,7 @@ Location- dys_UI/main/
 
 ________________________________________________
 
-Dependencies:
+DEPENDENCIES: Python 3.7
 
 -tensorflow (version 2.4.0)
 -torch (version 1.8.0)
