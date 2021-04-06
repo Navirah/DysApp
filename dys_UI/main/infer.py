@@ -1,9 +1,10 @@
 #Word Segmentation NN
 
-import argparse
+#import argparse
 
 import torch
 from path import Path
+import os
 
 from .dataloader import DataLoaderImgFile
 from .eval import evaluate
@@ -14,16 +15,18 @@ import cv2
 
 
 def segment(filepath=None):
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--device', choices=['cpu', 'cuda'], default='cpu')
-    args = parser.parse_args()
+    #parser = argparse.ArgumentParser()
+    #parser.add_argument('--device', choices=['cpu', 'cuda'], default='cpu')
+    #args = parser.parse_args()
 
     net = WordDetectorNet()
-    net.load_state_dict(torch.load('../model/weights', map_location=args.device))
+    module_dir = os.path.dirname(__file__) 
+    wts = os.path.join(module_dir, 'modelSegment', 'weights')
+    net.load_state_dict(torch.load(wts, map_location='cpu'))
     net.eval()
-    net.to(args.device)
+    net.to('cpu')
 
-    loader = DataLoaderImgFile(Path(filepath), net.input_size, args.device)
+    loader = DataLoaderImgFile(Path(filepath), net.input_size, 'cpu')
     res = evaluate(net, loader, max_aabbs=1000)
 
     pagewise=[]

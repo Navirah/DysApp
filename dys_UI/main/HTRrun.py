@@ -31,13 +31,14 @@ class FilePaths:
 		module_dir = os.path.dirname(__file__) 
 		self.fnCharList = os.path.join(module_dir, 'model', 'charList.txt')
 		self.fnSummary = os.path.join(module_dir, 'model', 'summary.json')
-		self.fnInfer= os.path.join(module_dir, 'pictures', 'trail.png')
+		self.fnInfer= os.path.join(module_dir, 'pictures','feb.jpg')
 
     #fnInfer = '../data/pragatitest.JPG'
     #fnCorpus = '../data/corpus.txt'
 
 def fetchforinfer(pathimg):
     #return segment(pathimg)
+    
     img = prepareImg(cv2.imread(pathimg), 50)
     res = wordSegmentation(img, kernelSize=25, sigma=11, theta=7, minArea=100)
 
@@ -82,9 +83,8 @@ def infer(model, fnImg):
     s=spelling()
     outpath=grammar_correct(s.correct())
     f=open(outpath,'r')
-    l=f.readlines()
-    for i in f:
-        print(i)
+    l=f.readline()
+    return l
     #corrected=s.punct()
     #return corrected[0]
     #print(corrected[0])

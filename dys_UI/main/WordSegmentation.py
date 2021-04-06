@@ -52,8 +52,9 @@ def prepareImg(img, height):
 	assert img.ndim in (2, 3)
 	if img.ndim == 3:
 		img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-	h = img.shape[0]
-	factor = height / h
+	h = img.shape[0]/4
+	print(h)
+	factor = height/ h
 	return cv2.resize(img, dsize=None, fx=factor, fy=factor)
 
 
