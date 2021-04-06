@@ -5,6 +5,7 @@ from .forms import UserRegistrationForm,FileForm
 from .models import File
 #from . import main
 from .HTRrun import runmodel
+from .tts import speechConversion
 
 
 
@@ -20,6 +21,7 @@ def home(request):
             saved=True
             #result= main.main()
             result=runmodel()
+            speechConversion()
             #result=main.test_integration()
     else:
         MyFileForm=FileForm()
