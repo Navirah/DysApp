@@ -31,14 +31,13 @@ class FilePaths:
 		module_dir = os.path.dirname(__file__) 
 		self.fnCharList = os.path.join(module_dir, 'model', 'charList.txt')
 		self.fnSummary = os.path.join(module_dir, 'model', 'summary.json')
-		self.fnInfer= os.path.join(module_dir, 'pictures','feb.jpg')
+		self.fnInfer= os.path.join(module_dir, 'pictures', 'trail.png')
 
     #fnInfer = '../data/pragatitest.JPG'
     #fnCorpus = '../data/corpus.txt'
 
 def fetchforinfer(pathimg):
     #return segment(pathimg)
-    
     img = prepareImg(cv2.imread(pathimg), 50)
     res = wordSegmentation(img, kernelSize=25, sigma=11, theta=7, minArea=100)
 
@@ -79,15 +78,17 @@ def infer(model, fnImg):
         outF.write('\n')
     
     outF.close()
+    
+    
 
-    s=spelling()
-    outpath=grammar_correct(s.correct())
+    s=spelling() 
+    pathspello=s.correct() #s will contain pathoutF
+    outpath=grammar_correct(pathspello) #path to final result
     f=open(outpath,'r')
-    l=f.readline()
-    return l
+    corrected=f.readlines()
     #corrected=s.punct()
-    #return corrected[0]
-    #print(corrected[0])
+    print(corrected[0])
+    return corrected[0]
     #outF1 = open("../data/corrected.txt", "w+")
     #outF1.write(corrected[0])
     #outF1.close()
@@ -96,7 +97,7 @@ def infer(model, fnImg):
     #print(f'Probability: {probability[0]},{probability[1]}')
 
 
-def runmodel():
+def runmodel(fpath):
 	#args = tools.argparser.parse_args()
 	'''if args.decoder == 'bestpath':
 		decoderType = DecoderType.BestPath
@@ -109,5 +110,5 @@ def runmodel():
 
 	F=FilePaths()
 	model = Model(open(F.fnCharList).read(), decoderType, mustRestore=True)
-	result = infer(model, F.fnInfer)
+	result = infer(model, fpath)
 	return result

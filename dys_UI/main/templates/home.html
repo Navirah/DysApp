@@ -73,7 +73,10 @@ input[type="file"]{
     {% if saved %}
       <div class="p-5 main">
         <p><strong>Output: </strong>{{result}}</p>
-        <button class="btn btn-primary mu-2">Download audio file</button>
+        <a class="btn btn-primary mu-2" href="/media/global.mp3" download="audio">Download audio file</a>
+        <audio width="400" height="38" controls controlsList="download">
+          <source data-src="/media/global.mp3" type="audio/mp3">
+        </audio>
       </div>
     {% endif %}
 </body>

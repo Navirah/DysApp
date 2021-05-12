@@ -18,10 +18,11 @@ class spelling:
 		f=open(pathoutF,'r')
 		self.text=(sp.spell_correct(f.readline())['spell_corrected_text'])
 		f.close()
-		pathoutF=os.path.join(module_dir,'gector','Output','Spello.text')
-		f=open(pathoutF,'w')
+		pathspello=os.path.join(module_dir,'gector','Output','Spello.txt')
+		f=open(pathspello,'w')
 		f.write(self.text)
-		return pathoutF
+		print(self.text)
+		return pathspello
 		#print('They have learned a story')
 
 	def punct(self):
