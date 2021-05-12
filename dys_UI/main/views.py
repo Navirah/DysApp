@@ -6,6 +6,7 @@ from .models import File
 #from . import main
 from .HTRrun import runmodel
 from .tts import speechConversion
+
 import os
 
 
@@ -23,6 +24,7 @@ def home(request):
             module_dir = os.path.dirname(__file__) 
             file_path=os.path.join(module_dir,'media',files.picture.name)
             #result= main.main()
+
             result=runmodel(file_path)
             #result=main.test_integration()
             speechConversion()
