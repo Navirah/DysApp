@@ -44,3 +44,11 @@ Notes:
 2. Download the spello model and put in the specidied location.
 3. Delete any .DS_Store file (If found)
 4. Delete any pycache file (If found)
+
+________________________________________
+
+REFERENCES:
+
+1. https://github.com/githubharald/SimpleHTR
+2. https://github.com/hellohaptik/spello
+3. https://github.com/grammarly/gector
