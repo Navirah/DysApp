@@ -1,5 +1,3 @@
-#HTR
-
 import argparse
 import json
 

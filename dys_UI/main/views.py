@@ -9,9 +9,6 @@ from .tts import speechConversion
 
 import os
 
-
-
-
 def home(request):
     saved=False
     if request.method=="POST":

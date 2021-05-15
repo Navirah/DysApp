@@ -1,5 +1,3 @@
-#Word Segmentation NN
-
 """
 ResNet
 taken from https://raw.githubusercontent.com/pytorch/vision/master/torchvision/models/resnet.py

@@ -1,5 +1,3 @@
-#Word Segmentation NN
-
 import argparse
 from collections import namedtuple
 
@@ -16,7 +14,7 @@ from .iou import compute_dist_mat_2
 from .loss import compute_loss
 from .net import WordDetectorNet
 from .utils import compute_scale_down
-from .visualization import FetchImages
+from .visualization import visualize_and_plot
 
 EvaluateRes = namedtuple('EvaluateRes', 'batch_imgs,batch_aabbs,loss,metrics')
 
@@ -116,8 +114,8 @@ def main():
     print(f'Precision: {res.metrics.precision()}')
     print(f'F1 score: {res.metrics.f1()}')
 
-    #for img, aabbs in zip(res.batch_imgs, res.batch_aabbs):
-        #visualize_and_plot(img, aabbs)
+    for img, aabbs in zip(res.batch_imgs, res.batch_aabbs):
+        visualize_and_plot(img, aabbs)
 
 
 if __name__ == '__main__':

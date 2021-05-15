@@ -1,5 +1,3 @@
-#word segmentation NN
-
 import pickle
 import xml.etree.ElementTree as ET
 

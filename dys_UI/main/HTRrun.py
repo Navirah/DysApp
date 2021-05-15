@@ -9,7 +9,7 @@ from .DataLoaderIAM import DataLoaderIAM, Batch
 from .Model import Model, DecoderType
 from .SamplePreprocessor import preprocess
 
-from .infer import segment
+#from .infer import segment
 import os
 
 from .WordSegmentation import wordSegmentation
@@ -18,6 +18,8 @@ from .WordSegmentation import prepareImg
 from .Spelling import spelling
 
 from .gector.predict import grammar_correct
+
+from .segmentationNN.process import Segment
 
 
 
@@ -37,7 +39,8 @@ class FilePaths:
     #fnCorpus = '../data/corpus.txt'
 
 def fetchforinfer(pathimg):
-    #return segment(pathimg)
+    return Segment(pathimg)
+    '''
     img = prepareImg(cv2.imread(pathimg), 50)
     res = wordSegmentation(img, kernelSize=25, sigma=11, theta=7, minArea=100)
 
@@ -50,7 +53,7 @@ def fetchforinfer(pathimg):
         words.append(wordImg)
         #cv2.imwrite('../out/pg.jpg/%d.png'%(j), wordImg) # save word
         #cv2.rectangle(img,(x,y),(x+w,y+h),0,1) 
-    return [words]
+    return [words]'''
     
 
 def infer(model, fnImg):

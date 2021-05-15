@@ -4,22 +4,7 @@ import math
 import cv2
 import numpy as np
 
-
 def wordSegmentation(img, kernelSize=25, sigma=11, theta=7, minArea=0):
-	"""Scale space technique for word segmentation proposed by R. Manmatha: http://ciir.cs.umass.edu/pubfiles/mm-27.pdf
-	
-	Args:
-		img: grayscale uint8 image of the text-line to be segmented.
-		kernelSize: size of filter kernel, must be an odd integer.
-		sigma: standard deviation of Gaussian function used for filter kernel.
-		theta: approximated width/height ratio of words, filter function is distorted by this factor.
-		minArea: ignore word candidates smaller than specified area.
-		
-	Returns:
-		List of tuples. Each tuple contains the bounding box and the image of the segmented word.
-	"""
-
-	# apply filter kernel
 	kernel = createKernel(kernelSize, sigma, theta)
 	imgFiltered = cv2.filter2D(img, -1, kernel, borderType=cv2.BORDER_REPLICATE).astype(np.uint8)
 	(_, imgThres) = cv2.threshold(imgFiltered, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
@@ -52,7 +37,7 @@ def prepareImg(img, height):
 	assert img.ndim in (2, 3)
 	if img.ndim == 3:
 		img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-	h = img.shape[0]/4
+	h = img.shape[0]/2
 	print(h)
 	factor = height/ h
 	return cv2.resize(img, dsize=None, fx=factor, fy=factor)
