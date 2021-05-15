@@ -1,6 +1,10 @@
 # DysApp
 
-Models:
+UPDATE: Model has been updated to take a page of handwritten text as an input (instead of sentences). Find updated code for the same in the SegmentationNN folder.
+
+________________________________________
+
+Pre-trained Models:
 
 1. Handwritten Text Recognition:
 Location- dys_UI/main/model/ (Trained on IAM + Dyagraphia dataset)
