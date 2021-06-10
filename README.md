@@ -17,6 +17,10 @@ Location- dys_UI/main/gector/models/
 Download- https://haptik-website-images.haptik.ai/spello_models/en_large.pkl.zip
 Location- dys_UI/main/
 
+4. Segmentation NN:
+Download- https://www.dropbox.com/s/mqhco2q67ovpfjq/model.zip?dl=1
+Location- dys_UI/main/SegmentationNN/model
+
 ________________________________________________
 
 DEPENDENCIES: Python 3.7.9
